@@ -142,7 +142,7 @@ export const users = pgTable('waitlist_users', {
 
 4. Run the development server:
    ```bash
-   npm run dev
+   node dist/index.js
    ```
 
 ## Development Workflow

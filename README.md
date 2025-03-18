@@ -148,7 +148,7 @@ export const users = pgTable('waitlist_users', {
 ## Development Workflow
 
 1. **Local Development**:
-   - Run `npm run dev` to start both client and server in development mode
+   - Run `node dist/index.js` to start both client and server in development mode
    - Client will be available at `http://localhost:5173`
    - Server API will be available at `http://localhost:3000`
 

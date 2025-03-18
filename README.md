@@ -23,7 +23,7 @@ EcoSearch Engine is a full-stack waitlist application built to collect and manag
 
 EcoSearch Engine is designed to build anticipation and collect user information prior to the full launch of the EcoSearch platform. The waitlist application provides a seamless user experience while capturing essential user data.
 
-![Waitlist Form](./images/waitlist-form.png)
+![Waitlist Form](./images/picture2.png)
 
 ## Features
 

@@ -140,6 +140,8 @@ export const users = pgTable('waitlist_users', {
 3. Set up environment variables:
    ```bash
    # Create .env file with the following variables
+   EMAIL_USER= your Gmail Id
+   EMAIL_PASSWORD= Your Gmail App Password- it is in your Secuirty Section of Gmail Setting , you just have to search and create and copy  that key 16-digit
    DATABASE_URL=your_postgres_connection_string
    PORT=3000
    # Add any other required environment variables

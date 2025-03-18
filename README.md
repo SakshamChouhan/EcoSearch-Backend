@@ -90,6 +90,11 @@ EcoSearchEngine/
 ├── client/                 # Frontend code
 │   ├── src/                # React components and logic
 │   └── index.html          # HTML entry point
+│── dist/
+│   │── public/             # Running The Development Server
+│   │   │── assets/
+│   │   │── index.html
+│   │── index.js
 ├── server/                 # Backend code
 │   ├── index.ts            # Server entry point
 │   ├── routes.ts           # API route definitions

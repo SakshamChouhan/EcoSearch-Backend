@@ -2,7 +2,7 @@
 
 EcoSearch Engine is a full-stack waitlist application built to collect and manage user registrations for the upcoming EcoSearch platform. This README provides comprehensive information about the project's architecture, design, workflow, and technical details.
 
-![EcoSearch Landing Page](./images/picture1)
+![EcoSearch Landing Page](./images/picture1.png)
 *Note: Add your screenshot images to an 'images' folder in your repository*
 
 ## Table of Contents

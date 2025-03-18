@@ -123,8 +123,8 @@ export const users = pgTable('waitlist_users', {
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/EcoSearchEngine.git
-   cd EcoSearchEngine
+   git clone https://github.com/SakshamChouhan/EcoSearch-Backend.git
+   cd EcoSearch-Backend
    ```
 
 2. Install dependencies:

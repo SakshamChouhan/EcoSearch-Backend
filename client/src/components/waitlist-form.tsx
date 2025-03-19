@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertWaitlistSchema } from "@shared/schema";
@@ -10,12 +9,10 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
 export default function WaitlistForm() {
   const { toast } = useToast();
@@ -23,8 +20,8 @@ export default function WaitlistForm() {
     resolver: zodResolver(insertWaitlistSchema),
     defaultValues: {
       name: "",
-      email: ""
-    }
+      email: "",
+    },
   });
 
   const mutation = useMutation({
@@ -37,64 +34,72 @@ export default function WaitlistForm() {
         title: "Success!",
         description: "You've been added to our waitlist. Check your email for confirmation.",
       });
-      form.reset();
+      form.reset({ name: "", email: "" });
     },
-    onError: () => {
+    onError: (error) => {
+      console.error("Mutation error:", error);
       toast({
         title: "Error",
         description: "Failed to join waitlist. Please try again.",
-        variant: "destructive"
+        variant: "destructive",
       });
-    }
+    },
   });
 
   return (
     <section className="py-12 md:py-16 px-4" id="waitlist">
-      <div className="container mx-auto max-w-md">
-        <Card className="mx-4 md:mx-0">
-          <CardHeader>
-            <CardTitle className="text-xl md:text-2xl text-center">Join the Waitlist</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm md:text-base">Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your name" className="text-sm md:text-base" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-sm" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm md:text-base">Email</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="Enter your email" className="text-sm md:text-base" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-sm" />
-                    </FormItem>
-                  )}
-                />
-                <Button 
-                  type="submit" 
-                  className="w-full text-sm md:text-base"
-                  disabled={mutation.isPending}
-                >
-                  {mutation.isPending ? "Joining..." : "Join Waitlist"}
-                </Button>
-              </form>
-            </Form>
-          </CardContent>
-        </Card>
+      <div className="container mx-auto flex justify-center">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit((data) => mutation.mutate(data))}
+            className="flex w-full max-w-2xl gap-3"
+          >
+            {/* Name Field */}
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormControl>
+                    <Input
+                      type="text"
+                      placeholder="Your Name"
+                      className="text-base w-full h-14 rounded-lg px-4 bg-[#ebebeb] text-gray-800 placeholder-[#a4a4a4] focus:outline-none focus:ring-2 focus:ring-[#8eb486]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="text-sm" />
+                </FormItem>
+              )}
+            />
+            {/* Email Field */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormControl>
+                    <Input
+                      type="email"
+                      placeholder="name@email.com"
+                      className="text-base w-full h-14 rounded-lg px-4 bg-[#ebebeb] text-gray-800 placeholder-[#a4a4a4] focus:outline-none focus:ring-2 focus:ring-[#8eb486]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="text-sm" />
+                </FormItem>
+              )}
+            />
+            {/* Submit Button */}
+            <Button
+              type="submit"
+              className="h-14 px-8 text-base rounded-lg bg-[#8eb486] text-white hover:bg-[#7ca572] transition-all duration-200"
+              disabled={mutation.isPending}
+            >
+              {mutation.isPending ? "Joining..." : "Join Waitlist"}
+            </Button>
+          </form>
+        </Form>
       </div>
     </section>
   );

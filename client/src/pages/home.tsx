@@ -24,7 +24,7 @@ export default function Home() {
         
         <FeaturesSection />
 
-        <div className="min-h-[200px]"></div>
+        <div className="min-h-[210px]"></div>
       </main>
 
       {/* Footer */}

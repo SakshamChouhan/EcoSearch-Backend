@@ -230,4 +230,4 @@ The application is deployed on Render:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## CodeLikeRed❤️
+## CodeLikeARed❤️
